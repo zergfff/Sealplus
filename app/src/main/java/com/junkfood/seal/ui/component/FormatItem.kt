@@ -62,6 +62,38 @@ import com.junkfood.seal.util.toBitrateText
 import com.junkfood.seal.util.toDurationText
 import com.junkfood.seal.util.toFileSizeText
 
+/**
+ * Returns a short, human-readable title for a [Format] card.
+ *
+ * Priority:
+ * 1. Explicit width × height metadata  → e.g. "1080×1920"
+ * 2. `resolution` field (when not "audio only") → e.g. "1280×720"
+ * 3. Resolution extracted from the raw `format` string via regex
+ * 4. Audio-only formats → formatNote if set, otherwise "Audio"
+ * 5. Fallback → formatId
+ */
+private fun Format.toDisplayTitle(): String {
+    // 1. Explicit dimensions
+    val w = width?.toInt()
+    val h = height?.toInt()
+    if (w != null && h != null && w > 0 && h > 0) return "${w}\u00d7${h}"
+
+    // 2. resolution field
+    val res = resolution?.trim()
+    if (!res.isNullOrBlank() && !res.equals("audio only", ignoreCase = true)) return res
+
+    // 3. Extract "WxH" from the raw format string
+    val raw = format ?: ""
+    val match = """(\d{3,4})x(\d{3,4})""".toRegex().find(raw)
+    if (match != null) return "${match.groupValues[1]}\u00d7${match.groupValues[2]}"
+
+    // 4. Audio-only
+    if (isAudioOnly()) return formatNote?.takeIf { it.isNotBlank() } ?: "Audio"
+
+    // 5. Fallback
+    return formatId ?: raw.ifBlank { "Unknown" }
+}
+
 @Composable
 fun FormatVideoPreview(
     modifier: Modifier = Modifier,
@@ -218,7 +250,7 @@ fun SuggestedFormatItem(
     val containsVideo = requestedFormats.any { it.containsVideo() }
     val containsAudio = requestedFormats.any { it.containsVideo() }
 
-    val title = requestedFormats.joinToString(separator = " + ") { it.format.toString() }
+    val title = requestedFormats.joinToString(separator = " + ") { it.toDisplayTitle() }
 
     val totalFileSize =
         requestedFormats.fold(initial = 0.0) { acc: Double, format: Format ->
@@ -297,7 +329,7 @@ fun FormatItem(
 
         FormatItem(
             modifier = modifier,
-            title = format.toString(),
+            title = formatInfo.toDisplayTitle(),
             containsAudio = formatInfo.containsAudio(),
             containsVideo = formatInfo.containsVideo(),
             firstLineText = firstLineText,
