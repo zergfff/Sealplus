@@ -176,6 +176,15 @@ fun NewHomePage(
     var showExitDialog by remember { mutableStateOf(false) }
     var urlText by remember { mutableStateOf("") }
     val keyboardController = LocalSoftwareKeyboardController.current
+
+    // Pre-fill URL from share intent
+    val sharedUrl by dialogViewModel.sharedUrlFlow.collectAsState()
+    LaunchedEffect(sharedUrl) {
+        if (sharedUrl.isNotBlank()) {
+            urlText = sharedUrl
+            dialogViewModel.consumeSharedUrl()
+        }
+    }
     
     // Get lifecycle owner
     val lifecycleOwner = androidx.lifecycle.compose.LocalLifecycleOwner.current

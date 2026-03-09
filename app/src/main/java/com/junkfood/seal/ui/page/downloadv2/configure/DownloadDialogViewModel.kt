@@ -92,10 +92,20 @@ class DownloadDialogViewModel(private val downloader: DownloaderV2) : ViewModel(
     private val mSheetStateFlow: MutableStateFlow<SheetState> =
         MutableStateFlow(SheetState.InputUrl)
     private val mSheetValueFlow: MutableStateFlow<SheetValue> = MutableStateFlow(SheetValue.Hidden)
+    private val mSharedUrlFlow: MutableStateFlow<String> = MutableStateFlow("")
 
     val selectionStateFlow = mSelectionStateFlow.asStateFlow()
     val sheetStateFlow = mSheetStateFlow.asStateFlow()
     val sheetValueFlow = mSheetValueFlow.asStateFlow()
+    val sharedUrlFlow = mSharedUrlFlow.asStateFlow()
+
+    fun setSharedUrl(url: String) {
+        mSharedUrlFlow.update { url }
+    }
+
+    fun consumeSharedUrl() {
+        mSharedUrlFlow.update { "" }
+    }
 
     private val sheetState
         get() = sheetStateFlow.value

@@ -46,6 +46,11 @@ class MainActivity : AppCompatActivity() {
         enableEdgeToEdge()
 
         context = this.baseContext
+
+        // Handle shared URL from intent on cold launch
+        intent.getSharedURL()?.let { url ->
+            dialogViewModel.setSharedUrl(url)
+        }
         
         setContent {
             KoinContext {
@@ -120,7 +125,7 @@ class MainActivity : AppCompatActivity() {
         super.onNewIntent(intent)
         val url = intent.getSharedURL()
         if (url != null) {
-            dialogViewModel.postAction(DownloadDialogViewModel.Action.ShowSheet(listOf(url)))
+            dialogViewModel.setSharedUrl(url)
         }
     }
 
