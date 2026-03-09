@@ -40,6 +40,7 @@ import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalDrawerSheet
 import androidx.compose.material3.ModalNavigationDrawer
 import androidx.compose.material3.NavigationDrawerItem
+import androidx.compose.material3.NavigationDrawerItemDefaults
 import androidx.compose.material3.ProvideTextStyle
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -286,7 +287,7 @@ fun NavigationDrawerSheetContent(
         DrawerHeader()
         
         Spacer(Modifier.height(16.dp))
-        
+
         // Group 1: Primary Destinations
         Column(modifier = Modifier.padding(horizontal = 12.dp)) {
             ProvideTextStyle(MaterialTheme.typography.labelLarge) {
@@ -298,7 +299,7 @@ fun NavigationDrawerSheetContent(
                             .launch { onDismissRequest() }
                             .invokeOnCompletion { onNavigateToRoute(Route.HOME) }
                     },
-                    selected = currentRoute == Route.HOME,
+                    selected = false,
                     modifier = Modifier.padding(vertical = 2.dp)
                 )
                 NavigationDrawerItem(
@@ -309,7 +310,7 @@ fun NavigationDrawerSheetContent(
                             .launch { onDismissRequest() }
                             .invokeOnCompletion { onNavigateToRoute(Route.DOWNLOADS) }
                     },
-                    selected = currentRoute == Route.DOWNLOADS,
+                    selected = false,
                     modifier = Modifier.padding(vertical = 2.dp)
                 )
                 NavigationDrawerItem(
@@ -320,7 +321,7 @@ fun NavigationDrawerSheetContent(
                             .launch { onDismissRequest() }
                             .invokeOnCompletion { onNavigateToRoute(Route.TASK_LIST) }
                     },
-                    selected = currentRoute == Route.TASK_LIST,
+                    selected = false,
                     modifier = Modifier.padding(vertical = 2.dp)
                 )
             }
@@ -343,7 +344,7 @@ fun NavigationDrawerSheetContent(
                             .launch { onDismissRequest() }
                             .invokeOnCompletion { onNavigateToRoute(Route.SETTINGS) }
                     },
-                    selected = currentRoute == Route.SETTINGS_PAGE,
+                    selected = false,
                     modifier = Modifier.padding(vertical = 2.dp)
                 )
                 NavigationDrawerItem(
@@ -354,7 +355,7 @@ fun NavigationDrawerSheetContent(
                             .launch { onDismissRequest() }
                             .invokeOnCompletion { onNavigateToRoute(Route.TROUBLESHOOTING) }
                     },
-                    selected = currentRoute == Route.TROUBLESHOOTING,
+                    selected = false,
                     modifier = Modifier.padding(vertical = 2.dp)
                 )
                 NavigationDrawerItem(
@@ -365,7 +366,7 @@ fun NavigationDrawerSheetContent(
                             .launch { onDismissRequest() }
                             .invokeOnCompletion { onNavigateToRoute(Route.DONATE) }
                     },
-                    selected = currentRoute == Route.DONATE,
+                    selected = false,
                     modifier = Modifier.padding(vertical = 2.dp)
                 )
                 NavigationDrawerItem(
@@ -376,7 +377,7 @@ fun NavigationDrawerSheetContent(
                             .launch { onDismissRequest() }
                             .invokeOnCompletion { onNavigateToRoute(Route.ABOUT) }
                     },
-                    selected = currentRoute == Route.ABOUT,
+                    selected = false,
                     modifier = Modifier.padding(vertical = 2.dp)
                 )
             }
