@@ -98,6 +98,7 @@ import com.junkfood.seal.ui.common.HapticFeedback.longPressHapticFeedback
 import com.junkfood.seal.ui.common.motion.materialSharedAxisX
 import com.junkfood.seal.ui.component.ButtonChip
 import com.junkfood.seal.ui.component.DrawerSheetSubtitle
+import com.junkfood.seal.ui.component.GradientCircularProgressIndicator
 import com.junkfood.seal.ui.component.OutlinedButtonWithIcon
 import com.junkfood.seal.ui.component.SealModalBottomSheet
 import com.junkfood.seal.ui.component.SealModalBottomSheetM2Variant
@@ -406,7 +407,7 @@ private fun DownloadDialogContent(
 
             is Loading -> {
                 Column(modifier = Modifier.fillMaxWidth().padding(vertical = 120.dp)) {
-                    CircularProgressIndicator(
+                    GradientCircularProgressIndicator(
                         modifier = Modifier.align(Alignment.CenterHorizontally)
                     )
                 }
