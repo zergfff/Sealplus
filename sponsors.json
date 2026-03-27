@@ -6,7 +6,7 @@
     },
     {
       "id": 2,
-      "name": "Peter ciomer"
+      "name": "Peter Ciomer"
     },
     {
       "id": 3,
@@ -15,6 +15,10 @@
     {
       "id": 4,
       "name": "Jeremy Badillo"
+    },
+    {
+      "id": 5,
+      "name": "Johannes Kathol"
     }
   ]
 }
