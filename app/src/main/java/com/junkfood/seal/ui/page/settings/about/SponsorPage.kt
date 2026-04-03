@@ -115,7 +115,7 @@ private const val SUPPORTERS = "Supporters 💖"
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun SponsorsPage(onNavigateBack: () -> Unit) {
+fun GitHubSponsorsPage(onNavigateBack: () -> Unit) {
     val scrollBehavior =
         TopAppBarDefaults.exitUntilCollapsedScrollBehavior(
             rememberTopAppBarState(),
@@ -769,7 +769,7 @@ fun DeveloperMessageSection(
 @Composable
 @Preview
 fun SponsorPagePreview() {
-    SponsorsPage {}
+    GitHubSponsorsPage {}
 }
 
 @Composable

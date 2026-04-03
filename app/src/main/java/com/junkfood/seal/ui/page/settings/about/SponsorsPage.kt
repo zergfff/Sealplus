@@ -57,6 +57,7 @@ import com.junkfood.seal.ui.theme.GradientDarkColors
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import kotlinx.serialization.SerializationException
+import kotlinx.serialization.Serializable
 import kotlinx.serialization.json.Json
 import kotlinx.serialization.json.int
 import kotlinx.serialization.json.jsonArray
@@ -65,6 +66,12 @@ import kotlinx.serialization.json.jsonPrimitive
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import java.util.concurrent.TimeUnit
+
+@Serializable
+data class Sponsor(val id: Int, val name: String)
+
+@Serializable
+data class SponsorsResponse(val sponsors: List<Sponsor> = emptyList())
 
 private const val SPONSORS_TAG = "SponsorsPage"
 
