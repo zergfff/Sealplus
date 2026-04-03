@@ -50,6 +50,7 @@ import com.junkfood.seal.ui.page.onboarding.OnboardingScreen
 import com.junkfood.seal.ui.page.settings.SettingsPage
 import com.junkfood.seal.ui.page.settings.about.AboutPage
 import com.junkfood.seal.ui.page.settings.about.CreditsPage
+import com.junkfood.seal.ui.page.settings.about.SponsorsPage
 import com.junkfood.seal.ui.page.settings.about.SupportDeveloperPage
 import com.junkfood.seal.ui.page.settings.about.UpdatePage
 import com.junkfood.seal.ui.page.settings.appearance.AppearancePreferences
@@ -226,7 +227,13 @@ fun NavGraphBuilder.settingsGraph(
                 onNavigateToOnboarding = { onNavigateTo(Route.ONBOARDING) },
             )
         }
-        animatedComposable(Route.DONATE) { SupportDeveloperPage(onNavigateBack = onNavigateBack) }
+        animatedComposable(Route.DONATE) {
+            SupportDeveloperPage(
+                onNavigateBack = onNavigateBack,
+                onNavigateToSponsors = { onNavigateTo(Route.SPONSORS) }
+            )
+        }
+        animatedComposable(Route.SPONSORS) { SponsorsPage(onNavigateBack = onNavigateBack) }
         animatedComposable(Route.CREDITS) { CreditsPage(onNavigateBack) }
         animatedComposable(Route.AUTO_UPDATE) { UpdatePage(onNavigateBack) }
         animatedComposable(Route.APPEARANCE) {
