@@ -96,6 +96,7 @@ import com.junkfood.seal.ui.page.settings.general.DialogCheckBoxItem
 import com.junkfood.seal.ui.theme.SealTheme
 import com.junkfood.seal.ui.theme.generateLabelColor
 import com.junkfood.seal.util.EXTRACT_AUDIO
+import com.junkfood.seal.util.FORMAT_LIST_VIEW
 import com.junkfood.seal.util.Format
 import com.junkfood.seal.util.FormatValidator
 import com.junkfood.seal.util.MERGE_MULTI_AUDIO_STREAM
@@ -483,6 +484,8 @@ private fun FormatPageImpl(
 
     val duration = videoInfo.duration ?: 0.0
 
+    val isListView = FORMAT_LIST_VIEW.getBoolean()
+
     var videoOnlyItemLimit by remember { mutableIntStateOf(6) }
     var audioOnlyItemLimit by remember { mutableIntStateOf(6) }
     // Show all video formats by default (including merged high-quality ones)
@@ -759,7 +762,7 @@ private fun FormatPageImpl(
             state = lazyGridState,
             verticalArrangement = Arrangement.spacedBy(12.dp),
             horizontalArrangement = Arrangement.spacedBy(12.dp),
-            columns = GridCells.Adaptive(160.dp),
+            columns = if (isListView) GridCells.Fixed(1) else GridCells.Adaptive(160.dp),
             contentPadding = PaddingValues(horizontal = 12.dp, vertical = 8.dp),
         ) {
             videoInfo.run {
@@ -1039,6 +1042,7 @@ private fun FormatPageImpl(
                         formatInfo = formatInfo,
                         duration = duration,
                         selected = selectedVideoAudioFormat == index,
+                        listView = isListView,
                         onLongClick = { formatInfo.url.share() },
                     ) {
                         selectedVideoAudioFormat =
@@ -1089,6 +1093,7 @@ private fun FormatPageImpl(
                         selected = selectedAudioOnlyFormats.contains(index),
                         containerColor = MaterialTheme.colorScheme.secondaryContainer,
                         outlineColor = MaterialTheme.colorScheme.secondary,
+                        listView = isListView,
                         onLongClick = { formatInfo.url.share() },
                     ) {
                         if (selectedAudioOnlyFormats.contains(index)) {
@@ -1141,6 +1146,7 @@ private fun FormatPageImpl(
                         selected = selectedVideoOnlyFormat == index,
                         containerColor = MaterialTheme.colorScheme.tertiaryContainer,
                         outlineColor = MaterialTheme.colorScheme.tertiary,
+                        listView = isListView,
                         onLongClick = { formatInfo.url.share() },
                     ) {
                         selectedVideoOnlyFormat =

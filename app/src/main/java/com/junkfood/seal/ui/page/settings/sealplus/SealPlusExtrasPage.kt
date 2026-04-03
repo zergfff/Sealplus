@@ -12,6 +12,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.outlined.Lock
 import androidx.compose.material.icons.outlined.Notifications
 import androidx.compose.material.icons.outlined.Public
+import androidx.compose.material.icons.outlined.ViewAgenda
 import androidx.compose.material.icons.outlined.VisibilityOff
 import androidx.compose.material.icons.outlined.VolunteerActivism
 import androidx.compose.material.icons.outlined.SignalCellular4Bar
@@ -45,6 +46,7 @@ import com.junkfood.seal.ui.component.PreferenceSwitch
 import com.junkfood.seal.ui.page.security.LockScreen
 import com.junkfood.seal.util.AuthenticationManager
 import com.junkfood.seal.util.ARIA2C_CONNECTIONS
+import com.junkfood.seal.util.FORMAT_LIST_VIEW
 import com.junkfood.seal.util.MAX_CONCURRENT_DOWNLOADS
 import com.junkfood.seal.util.NETWORK_ANY
 import com.junkfood.seal.util.NETWORK_MOBILE_ONLY
@@ -86,6 +88,7 @@ fun SealPlusExtrasPage(
     var sponsorDialogFrequency by remember { mutableStateOf(SPONSOR_DIALOG_FREQUENCY.getInt()) }
     var showSponsorFrequencyDialog by remember { mutableStateOf(false) }
     var notificationErrorSound by remember { mutableStateOf(NOTIFICATION_ERROR_SOUND.getBoolean()) }
+    var formatListView by remember { mutableStateOf(FORMAT_LIST_VIEW.getBoolean()) }
     
     // Authentication state for AppLock settings
     var showAuthScreen by remember { mutableStateOf(false) }
@@ -281,6 +284,23 @@ fun SealPlusExtrasPage(
                         )
                     }
                 }
+            }
+
+            item {
+                PreferenceSubtitle(text = stringResource(R.string.format_selection_layout))
+            }
+
+            item {
+                PreferenceSwitch(
+                    title = stringResource(R.string.format_list_view_title),
+                    description = stringResource(R.string.format_list_view_desc),
+                    icon = Icons.Outlined.ViewAgenda,
+                    isChecked = formatListView,
+                    onClick = {
+                        FORMAT_LIST_VIEW.updateBoolean(!formatListView)
+                        formatListView = !formatListView
+                    }
+                )
             }
 
             item {

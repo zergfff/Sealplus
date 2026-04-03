@@ -302,6 +302,7 @@ fun FormatItem(
     selected: Boolean = false,
     outlineColor: Color = MaterialTheme.colorScheme.primary,
     containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
+    listView: Boolean = false,
     onLongClick: (() -> Unit)? = null,
     onClick: () -> Unit = {},
 ) {
@@ -338,6 +339,7 @@ fun FormatItem(
             outlineColor = outlineColor,
             containerColor = containerColor,
             selected = selected,
+            listView = listView,
             onLongClick = onLongClick,
             onClick = onClick,
         )
@@ -356,6 +358,7 @@ fun FormatItem(
     selected: Boolean = false,
     outlineColor: Color = MaterialTheme.colorScheme.primary,
     containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
+    listView: Boolean = false,
     onLongClick: (() -> Unit)? = null,
     onClick: () -> Unit = {},
 ) {
@@ -410,51 +413,10 @@ fun FormatItem(
             label = "",
         )
 
-    Box(
-        modifier =
-            modifier
-                .clip(MaterialTheme.shapes.large)
-                .combinedClickable(
-                    onClick = { onClick() },
-                    onLongClick = onLongClick,
-                    onLongClickLabel = stringResource(R.string.copy_link),
-                )
-                .border(
-                    width = if (selected) 2.dp else 1.dp,
-                    color = animatedOutlineColor,
-                    shape = MaterialTheme.shapes.large,
-                )
-                .background(animatedContainerColor)
-    ) {
-        Column(Modifier.padding(18.dp), horizontalAlignment = Alignment.Start) {
-            Text(
-                text = title,
-                style = MaterialTheme.typography.titleMedium,
-                minLines = 2,
-                maxLines = 2,
-                color = animatedTitleColor,
-                overflow = TextOverflow.Clip,
-            )
-
-            Text(
-                text = firstLineText,
-                style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.padding(top = 10.dp),
-                color = animatedFirstLineColor,
-                maxLines = 2,
-            )
-
-            Text(
-                text = secondLineText,
-                style = MaterialTheme.typography.bodyMedium,
-                modifier = Modifier.padding(top = 4.dp),
-                color = animatedSecondLineColor,
-                maxLines = 1,
-            )
-        }
+    val mediaIcons: @Composable () -> Unit = {
         Row(
-            modifier = Modifier.padding(bottom = 10.dp, end = 10.dp).align(Alignment.BottomEnd),
-            horizontalArrangement = Arrangement.spacedBy(4.dp)
+            horizontalArrangement = Arrangement.spacedBy(4.dp),
+            verticalAlignment = Alignment.CenterVertically,
         ) {
             if (containsVideo)
                 Icon(
@@ -477,6 +439,132 @@ fun FormatItem(
                     contentDescription = stringResource(id = R.string.unknown),
                     modifier = Modifier.size(18.dp),
                 )
+            }
+        }
+    }
+
+    if (listView) {
+        // List row layout: horizontal with title, details, and icons inline
+        Row(
+            modifier = modifier
+                .fillMaxWidth()
+                .clip(MaterialTheme.shapes.medium)
+                .combinedClickable(
+                    onClick = { onClick() },
+                    onLongClick = onLongClick,
+                    onLongClickLabel = stringResource(R.string.copy_link),
+                )
+                .border(
+                    width = if (selected) 2.dp else 1.dp,
+                    color = animatedOutlineColor,
+                    shape = MaterialTheme.shapes.medium,
+                )
+                .background(animatedContainerColor)
+                .padding(horizontal = 16.dp, vertical = 12.dp),
+            verticalAlignment = Alignment.CenterVertically,
+            horizontalArrangement = Arrangement.spacedBy(12.dp),
+        ) {
+            Column(modifier = Modifier.weight(1f)) {
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.titleMedium,
+                    maxLines = 1,
+                    overflow = TextOverflow.Ellipsis,
+                    color = animatedTitleColor,
+                )
+                if (firstLineText.isNotBlank()) {
+                    Text(
+                        text = firstLineText,
+                        style = MaterialTheme.typography.bodySmall,
+                        modifier = Modifier.padding(top = 2.dp),
+                        color = animatedFirstLineColor,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
+                if (secondLineText.isNotBlank()) {
+                    Text(
+                        text = secondLineText,
+                        style = MaterialTheme.typography.bodySmall,
+                        modifier = Modifier.padding(top = 1.dp),
+                        color = animatedSecondLineColor,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                }
+            }
+            mediaIcons()
+        }
+    } else {
+        // Original grid card layout
+        Box(
+            modifier =
+                modifier
+                    .clip(MaterialTheme.shapes.large)
+                    .combinedClickable(
+                        onClick = { onClick() },
+                        onLongClick = onLongClick,
+                        onLongClickLabel = stringResource(R.string.copy_link),
+                    )
+                    .border(
+                        width = if (selected) 2.dp else 1.dp,
+                        color = animatedOutlineColor,
+                        shape = MaterialTheme.shapes.large,
+                    )
+                    .background(animatedContainerColor)
+        ) {
+            Column(Modifier.padding(18.dp), horizontalAlignment = Alignment.Start) {
+                Text(
+                    text = title,
+                    style = MaterialTheme.typography.titleMedium,
+                    minLines = 2,
+                    maxLines = 2,
+                    color = animatedTitleColor,
+                    overflow = TextOverflow.Clip,
+                )
+
+                Text(
+                    text = firstLineText,
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.padding(top = 10.dp),
+                    color = animatedFirstLineColor,
+                    maxLines = 2,
+                )
+
+                Text(
+                    text = secondLineText,
+                    style = MaterialTheme.typography.bodyMedium,
+                    modifier = Modifier.padding(top = 4.dp),
+                    color = animatedSecondLineColor,
+                    maxLines = 1,
+                )
+            }
+            Row(
+                modifier = Modifier.padding(bottom = 10.dp, end = 10.dp).align(Alignment.BottomEnd),
+                horizontalArrangement = Arrangement.spacedBy(4.dp)
+            ) {
+                if (containsVideo)
+                    Icon(
+                        imageVector = Icons.Rounded.Videocam,
+                        tint = animatedIconColor,
+                        contentDescription = stringResource(id = R.string.video),
+                        modifier = Modifier.size(18.dp),
+                    )
+                if (containsAudio)
+                    Icon(
+                        imageVector = Icons.Rounded.Audiotrack,
+                        tint = animatedIconColor,
+                        contentDescription = stringResource(id = R.string.audio),
+                        modifier = Modifier.size(18.dp),
+                    )
+                if (!containsVideo && !containsAudio) {
+                    Icon(
+                        imageVector = Icons.Rounded.QuestionMark,
+                        tint = animatedIconColor,
+                        contentDescription = stringResource(id = R.string.unknown),
+                        modifier = Modifier.size(18.dp),
+                    )
+                }
             }
         }
     }

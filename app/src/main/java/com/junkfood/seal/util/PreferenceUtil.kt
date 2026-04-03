@@ -134,6 +134,9 @@ const val NETWORK_TYPE_RESTRICTION = "network_type_restriction"
 // Download Control
 const val MAX_CONCURRENT_DOWNLOADS = "max_concurrent_downloads"
 
+// Format Selection Layout
+const val FORMAT_LIST_VIEW = "format_list_view"
+
 // Smart Notifications
 const val NOTIFICATION_SOUND = "notification_sound"
 const val NOTIFICATION_VIBRATE = "notification_vibrate"
@@ -274,6 +277,7 @@ private val BooleanPreferenceDefaults =
         PROXY_ENABLED to false,
         PROXY_USE_FREE to true,
         PROXY_IS_WORKING to false,
+        FORMAT_LIST_VIEW to false,
     )
 
 private val IntPreferenceDefaults =
