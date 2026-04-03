@@ -109,10 +109,8 @@ import com.junkfood.seal.util.VIDEO_CLIP
 import com.junkfood.seal.util.VideoClip
 import com.junkfood.seal.util.VideoInfo
 import com.junkfood.seal.util.toHttpsUrl
-import kotlin.math.max
 import kotlin.math.min
 import kotlin.math.roundToInt
-import kotlin.math.pow
 import kotlinx.coroutines.delay
 import androidx.compose.material3.CircularProgressIndicator
 import org.koin.compose.koinInject

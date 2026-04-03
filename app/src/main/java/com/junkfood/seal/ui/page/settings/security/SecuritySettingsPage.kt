@@ -1,8 +1,6 @@
 package com.junkfood.seal.ui.page.settings.security
 
 import android.content.res.Configuration
-import androidx.compose.animation.core.Spring
-import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.*
@@ -30,7 +28,6 @@ import com.junkfood.seal.ui.theme.SealTheme
 import com.junkfood.seal.util.AuthenticationManager
 import com.junkfood.seal.util.makeToast
 import kotlinx.coroutines.delay
-import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable

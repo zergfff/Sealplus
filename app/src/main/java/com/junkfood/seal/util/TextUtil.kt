@@ -5,14 +5,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.stringResource
 import androidx.core.text.isDigitsOnly
 import com.junkfood.seal.App
-import com.junkfood.seal.App.Companion.applicationScope
-import com.junkfood.seal.App.Companion.context
 import com.junkfood.seal.R
 import com.junkfood.seal.ui.common.ThemedToastManager
 import java.util.regex.Pattern
 import kotlin.math.roundToInt
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 fun Context.makeToast(stringId: Int) {
     ThemedToastManager.showToast(this, stringId)

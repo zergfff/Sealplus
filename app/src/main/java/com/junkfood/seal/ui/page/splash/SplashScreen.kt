@@ -21,7 +21,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.junkfood.seal.R
 import com.junkfood.seal.ui.common.LocalGradientDarkMode
-import com.junkfood.seal.ui.theme.GradientBrushes
 import com.junkfood.seal.ui.theme.GradientDarkColors
 import com.junkfood.seal.ui.theme.SealTheme
 import kotlinx.coroutines.delay

@@ -1,6 +1,5 @@
 package com.junkfood.seal.util
 
-import android.content.Context
 import android.util.Log
 import com.junkfood.seal.util.PreferenceUtil.getBoolean
 import com.junkfood.seal.util.PreferenceUtil.getInt

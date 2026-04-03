@@ -2,8 +2,6 @@ package com.junkfood.seal.util
 
 import android.content.Context
 import android.os.Build
-import android.security.keystore.KeyGenParameterSpec
-import android.security.keystore.KeyProperties
 import android.util.Base64
 import android.util.Log
 import androidx.biometric.BiometricManager
@@ -17,12 +15,7 @@ import com.junkfood.seal.App.Companion.context
 import com.junkfood.seal.R
 import com.tencent.mmkv.MMKV
 import java.nio.charset.StandardCharsets
-import java.security.KeyStore
 import java.security.MessageDigest
-import javax.crypto.Cipher
-import javax.crypto.KeyGenerator
-import javax.crypto.SecretKey
-import javax.crypto.spec.GCMParameterSpec
 
 private const val TAG = "AuthenticationManager"
 private const val KEYSTORE_ALIAS = "SealPlusAuthKey"

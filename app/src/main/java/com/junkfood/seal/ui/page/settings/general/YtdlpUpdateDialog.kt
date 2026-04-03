@@ -53,9 +53,6 @@ import com.junkfood.seal.util.YT_DLP_NIGHTLY
 import com.junkfood.seal.util.YT_DLP_STABLE
 import com.junkfood.seal.util.YT_DLP_UPDATE_CHANNEL
 import com.junkfood.seal.util.YT_DLP_UPDATE_INTERVAL
-import kotlin.collections.component1
-import kotlin.collections.component2
-import kotlin.collections.iterator
 
 @Composable
 private fun DialogSingleChoiceItem(

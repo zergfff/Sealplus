@@ -3,17 +3,12 @@ package com.junkfood.seal.ui.page.downloadv2.configure
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.junkfood.seal.App
-import com.junkfood.seal.R
 import com.junkfood.seal.database.objects.CommandTemplate
 import com.junkfood.seal.download.DownloaderV2
 import com.junkfood.seal.download.Task
 import com.junkfood.seal.util.DownloadUtil
-import com.junkfood.seal.util.NETWORK_MOBILE_ONLY
-import com.junkfood.seal.util.NETWORK_TYPE_RESTRICTION
-import com.junkfood.seal.util.NETWORK_WIFI_ONLY
 import com.junkfood.seal.util.PlaylistResult
 import com.junkfood.seal.util.PreferenceUtil
-import com.junkfood.seal.util.PreferenceUtil.getInt
 import com.junkfood.seal.util.VideoInfo
 import com.junkfood.seal.util.makeToast
 import com.yausername.youtubedl_android.YoutubeDL
