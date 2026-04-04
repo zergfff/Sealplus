@@ -12,9 +12,11 @@ import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.GridItemSpan
@@ -49,6 +51,8 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -336,6 +340,9 @@ fun FormatItem(
             containsVideo = formatInfo.containsVideo(),
             firstLineText = firstLineText,
             secondLineText = secondLineText,
+            listViewFileSizeText = fileSizeText,
+            listViewBitrateCodecText = connectWithDelimiter(tbrText, codec, delimiter = " "),
+            listViewFormatExt = ext?.uppercase() ?: "",
             outlineColor = outlineColor,
             containerColor = containerColor,
             selected = selected,
@@ -355,6 +362,9 @@ fun FormatItem(
     containsVideo: Boolean = false,
     firstLineText: String,
     secondLineText: String,
+    listViewFileSizeText: String = "",
+    listViewBitrateCodecText: String = "",
+    listViewFormatExt: String = "",
     selected: Boolean = false,
     outlineColor: Color = MaterialTheme.colorScheme.primary,
     containerColor: Color = MaterialTheme.colorScheme.primaryContainer,
@@ -444,11 +454,11 @@ fun FormatItem(
     }
 
     if (listView) {
-        // List row layout: horizontal with title, details, and icons inline
-        Row(
+        // New premium card layout: centered, full-width, 3-section vertical design
+        Column(
             modifier = modifier
                 .fillMaxWidth()
-                .clip(MaterialTheme.shapes.medium)
+                .clip(MaterialTheme.shapes.large)
                 .combinedClickable(
                     onClick = { onClick() },
                     onLongClick = onLongClick,
@@ -457,43 +467,72 @@ fun FormatItem(
                 .border(
                     width = if (selected) 2.dp else 1.dp,
                     color = animatedOutlineColor,
-                    shape = MaterialTheme.shapes.medium,
+                    shape = MaterialTheme.shapes.large,
                 )
                 .background(animatedContainerColor)
-                .padding(horizontal = 16.dp, vertical = 12.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(12.dp),
+                .padding(horizontal = 16.dp, vertical = 14.dp),
+            verticalArrangement = Arrangement.spacedBy(6.dp),
+            horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            Column(modifier = Modifier.weight(1f)) {
-                Text(
-                    text = title,
-                    style = MaterialTheme.typography.titleMedium,
-                    maxLines = 1,
-                    overflow = TextOverflow.Ellipsis,
-                    color = animatedTitleColor,
-                )
-                if (firstLineText.isNotBlank()) {
+            // Top Section: Resolution / title — large, bold, perfectly centered
+            Text(
+                text = title,
+                style = MaterialTheme.typography.titleLarge,
+                fontWeight = FontWeight.Bold,
+                color = animatedTitleColor,
+                textAlign = TextAlign.Center,
+                maxLines = 1,
+                overflow = TextOverflow.Ellipsis,
+                modifier = Modifier.fillMaxWidth(),
+            )
+
+            // Middle Section: Format icon(s) + format text — horizontally centered
+            val middleText = listViewFormatExt.ifBlank { secondLineText }
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.Center,
+                verticalAlignment = Alignment.CenterVertically,
+            ) {
+                mediaIcons()
+                if (middleText.isNotBlank()) {
+                    Spacer(modifier = Modifier.width(6.dp))
                     Text(
-                        text = firstLineText,
-                        style = MaterialTheme.typography.bodySmall,
-                        modifier = Modifier.padding(top = 2.dp),
-                        color = animatedFirstLineColor,
-                        maxLines = 1,
-                        overflow = TextOverflow.Ellipsis,
-                    )
-                }
-                if (secondLineText.isNotBlank()) {
-                    Text(
-                        text = secondLineText,
-                        style = MaterialTheme.typography.bodySmall,
-                        modifier = Modifier.padding(top = 1.dp),
+                        text = middleText,
+                        style = MaterialTheme.typography.bodyMedium,
                         color = animatedSecondLineColor,
                         maxLines = 1,
                         overflow = TextOverflow.Ellipsis,
                     )
                 }
             }
-            mediaIcons()
+
+            // Bottom Section: file size (left) | bitrate + codec (right)
+            val bottomLeft = listViewFileSizeText.ifBlank { firstLineText }
+            val bottomRight = listViewBitrateCodecText
+            if (bottomLeft.isNotBlank() || bottomRight.isNotBlank()) {
+                Row(
+                    modifier = Modifier.fillMaxWidth().padding(top = 2.dp),
+                    horizontalArrangement = Arrangement.SpaceBetween,
+                    verticalAlignment = Alignment.CenterVertically,
+                ) {
+                    Text(
+                        text = bottomLeft,
+                        style = MaterialTheme.typography.bodySmall,
+                        color = animatedSecondLineColor,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis,
+                    )
+                    if (bottomRight.isNotBlank()) {
+                        Text(
+                            text = bottomRight,
+                            style = MaterialTheme.typography.bodySmall,
+                            color = animatedSecondLineColor,
+                            maxLines = 1,
+                            overflow = TextOverflow.Ellipsis,
+                        )
+                    }
+                }
+            }
         }
     } else {
         // Original grid card layout
