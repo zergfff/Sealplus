@@ -427,11 +427,14 @@ fun ListItemStateText(
                 }
                 ReadyWithInfo -> stringResource(R.string.status_enqueued)
                 is Running -> {
+                    val progressText = downloadState.progressText
                     val progress = downloadState.progress
-                    if (progress >= 0) {
-                        "%.1f %%".format(downloadState.progress * 100)
-                    } else {
-                        stringResource(R.string.status_downloading)
+                    when {
+                        progressText.contains("[Merger]", ignoreCase = true) ||
+                        progressText.contains("Merging formats", ignoreCase = true) ->
+                            stringResource(R.string.status_merging)
+                        progress >= 0 -> "%.1f %%".format(progress * 100)
+                        else -> stringResource(R.string.status_downloading)
                     }
                 }
             }
@@ -519,7 +522,11 @@ private fun CardItemStateText(modifier: Modifier = Modifier, downloadState: Task
             Idle -> R.string.status_enqueued
             is Paused -> R.string.status_paused
             ReadyWithInfo -> R.string.status_enqueued
-            is Running -> R.string.status_downloading
+            is Running ->
+                if (downloadState.progressText.contains("[Merger]", ignoreCase = true) ||
+                    downloadState.progressText.contains("Merging formats", ignoreCase = true))
+                    R.string.status_merging
+                else R.string.status_downloading
         }
     Row(modifier = modifier, verticalAlignment = Alignment.CenterVertically) {
         if (downloadState is Error) {

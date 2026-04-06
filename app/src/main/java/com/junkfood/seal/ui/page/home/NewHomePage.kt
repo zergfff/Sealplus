@@ -1141,55 +1141,68 @@ fun ActiveDownloadCard(
     var currentPhase by remember { mutableStateOf("downloading") }
     
     // Determine phase based on progressText patterns
+    // NOTE: DownloaderV2 strips the "[download] " prefix before storing progressText,
+    // so download progress lines look like "45.3% of 10.00MiB at 2.50MiB/s ETA 00:03"
+    // or "100% of 10.00MiB in 00:04". We detect them by looking for the % sign with digits.
     val downloadPhase = when {
-        // Merging phase
-        progressText.contains("[Merger]", ignoreCase = true) || 
+        // Merging phase — [Merger] prefix is NOT stripped
+        progressText.contains("[Merger]", ignoreCase = true) ||
         progressText.contains("Merging formats", ignoreCase = true) -> {
             currentPhase = "merging"
             hasSeenVideoComplete = false
             hasSeenFormatInfo = false
             "merging"
         }
-        // Format info line - indicates download will start
+        // Format info line — [info] prefix is NOT stripped
         progressText.contains("[info]", ignoreCase = true) && progressText.contains("format", ignoreCase = true) -> {
             hasSeenFormatInfo = true
             hasSeenVideoComplete = false
-            currentPhase = "fetching"
+            currentPhase = "downloading"
             "downloading"
         }
-        // Download progress lines
-        progressText.contains("[download]", ignoreCase = true) -> {
+        // Download progress lines — "[download]" prefix stripped; match % pattern instead
+        progressText.matches(Regex("""^\d+(\.\d+)?%.*""")) || progressText.contains("% of ") -> {
             when {
-                // First 100% completion - video is done, audio is next
-                progressText.contains("100%") && !hasSeenVideoComplete -> {
+                // 100% completion — video stream done, audio stream is next
+                (progressText.startsWith("100%") || progressText.contains("100% of ")) && !hasSeenVideoComplete -> {
                     hasSeenVideoComplete = true
                     currentPhase = "video"
                     "video"
                 }
-                // After video complete, any download progress is audio
+                // After video complete, any download progress is the audio stream
                 hasSeenVideoComplete -> {
                     currentPhase = "audio"
                     "audio"
                 }
-                // Before any completion, it's video (first download is always video)
+                // Before any 100% seen, first stream is always video
                 hasSeenFormatInfo -> {
                     currentPhase = "video"
                     "video"
                 }
-                else -> "downloading"
+                else -> {
+                    currentPhase = "downloading"
+                    "downloading"
+                }
             }
         }
-        // Post-download file operations - maintain current phase
+        // Post-download file operations — maintain current phase
         progressText.contains("Deleting original file", ignoreCase = true) ||
         progressText.contains("[Metadata]", ignoreCase = true) ||
         progressText.contains("[MoveFiles]", ignoreCase = true) -> {
             currentPhase
         }
-        // Fetching info phase
-        progressText.contains("[youtube]", ignoreCase = true) || 
+        // yt-dlp re-outputs [youtube] / "Downloading webpage" lines between streams.
+        // In Running state we are always downloading (FetchingInfo state handles the fetch phase).
+        progressText.contains("[youtube]", ignoreCase = true) ||
         progressText.contains("Downloading webpage", ignoreCase = true) ||
         progressText.contains("Downloading player", ignoreCase = true) -> {
-            "fetching"
+            if (hasSeenVideoComplete) {
+                // yt-dlp is initializing the second (audio) stream
+                currentPhase = "audio"
+                "audio"
+            } else {
+                currentPhase  // Maintain current phase — never show "fetching" while running
+            }
         }
         else -> currentPhase
     }
