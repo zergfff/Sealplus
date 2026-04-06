@@ -302,6 +302,8 @@
     <string name="required">Vyžadované</string>
     <string name="embed_subtitles_mkv_msg">Pro účel vložení souborů titulků budou videa převedena do kontejneru mkv. Pro přehrávání videí se soubory titulků můžete použít například VLC Media Player nebo jiné kompatibilní aplikace.</string>
     <string name="abs_hint">Většina platforem pro streamování videa poskytuje zvuk a video odděleně, můžete vybrat a sloučit zvukové a video formáty do jednoho videa.</string>
+    <string name="video_audio_merge_hint">Video a zvuk jsou vybrány — při stahování se automaticky sloučí.</string>
+    <string name="download_and_merge">Stáhnout a sloučit</string>
     <string name="no_custom_command_tasks">Žádná úloha s vlastními příkazy</string>
     <string name="enable_auto_update">Povolit automatické aktualizace</string>
     <string name="lowest_bitrate">Nejnižší bitrate</string>

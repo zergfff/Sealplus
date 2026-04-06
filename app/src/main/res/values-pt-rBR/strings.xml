@@ -240,6 +240,8 @@
     <string name="logs">Log</string>
     <string name="matrix_space">Espaço no Matrix</string>
     <string name="abs_hint">A maioria das plataformas de streaming de vídeo oferece áudio e vídeo separadamente, você pode selecionar e mesclar um formato somente de áudio com um formato somente de vídeo em um único vídeo.</string>
+    <string name="video_audio_merge_hint">Vídeo e áudio selecionados — serão mesclados automaticamente ao baixar.</string>
+    <string name="download_and_merge">Baixar e mesclar</string>
     <string name="discard">Descartar</string>
     <string name="apply">Aplicar</string>
     <string name="clip_video">Cortar vídeo</string>

@@ -50,4 +50,6 @@
     <string name="custom_command_template">قالب الأوامر</string>
     <string name="edit">تعديل</string>
     <string name="credits_desc">الاعتمادات والبرمجيات الحرة</string>
+    <string name="video_audio_merge_hint">تم تحديد الفيديو والصوت — سيتم دمجهما تلقائيًا عند التنزيل.</string>
+    <string name="download_and_merge">تنزيل ودمج</string>
 </resources>

@@ -242,6 +242,8 @@
     <string name="auto_subtitle_desc">Автоматаар үүсгэсэн тайлбарыг татаж авах</string>
     <string name="title_activity_share">Түргэн татаж авах</string>
     <string name="abs_hint">Ихэнх видео стриминг платформууд аудио болон видеог тусад нь хүргэдэг тул та зөвхөн видео форматтай зөвхөн аудио форматыг сонгож, нэг видео болгон нэгтгэж болно.</string>
+    <string name="video_audio_merge_hint">Видео болон аудио сонгогдсон — татаж авах үед автоматаар нэгтгэгдэнэ.</string>
+    <string name="download_and_merge">Татаж авах ба нэгтгэх</string>
     <string name="video_title_sample_text">Видеоны гарчгийн жишээ текст</string>
     <string name="video_creator_sample_text">Видео бүтээгчийн жишээ текст</string>
     <string name="subtitle">Хадмал орчуулга</string>

@@ -224,6 +224,8 @@
     <string name="subtitle_sponsorblock">SponsorBlockのシーンを削除すると、字幕のタイミングがずれることがあります。</string>
     <string name="custom_command_enabled_hint">カスタムコマンドの使用中は一部の設定を利用できません</string>
     <string name="abs_hint">多くの動画配信プラットフォームは、音声と映像を別々に配信します。音声形式と映像形式を選択し、1つの動画として結合できます。</string>
+    <string name="video_audio_merge_hint">映像と音声が選択されました — ダウンロード時に自動的に結合されます。</string>
+    <string name="download_and_merge">ダウンロードして結合</string>
     <string name="how_does_it_work">どのように機能しますか？</string>
     <string name="title_activity_share">クイックダウンロード</string>
     <string name="video_title_sample_text">動画タイトルサンプルテキスト</string>

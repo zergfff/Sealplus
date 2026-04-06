@@ -230,6 +230,8 @@
     <string name="auto_subtitle_desc">下载自动生成的字幕</string>
     <string name="title_activity_share">一键下载</string>
     <string name="abs_hint">大部分视频平台将音频流与视频流分开传输，你可以同时选取仅音频格式与仅视频格式，将其合并为一个视频。</string>
+    <string name="video_audio_merge_hint">已选择视频和音频 — 下载时将自动合并。</string>
+    <string name="download_and_merge">下载并合并</string>
     <string name="video_title_sample_text">视频标题</string>
     <string name="video_creator_sample_text">视频作者</string>
     <string name="subtitle">字幕</string>

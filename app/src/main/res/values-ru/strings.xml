@@ -257,6 +257,8 @@
     <string name="auto_update">Автообновление</string>
     <string name="enable_auto_update">Включить автообновление</string>
     <string name="abs_hint">Большинство стриминговых сервисов поставляют аудио и видео раздельно. Вы можете выбрать и объединить форматы только аудио с только видео в одно видео.</string>
+    <string name="video_audio_merge_hint">Видео и аудио выбраны — будут автоматически объединены при загрузке.</string>
+    <string name="download_and_merge">Скачать и объединить</string>
     <string name="clip_end">Конец</string>
     <string name="clip_video">Обрезать видео</string>
     <string name="discard">Отменить</string>

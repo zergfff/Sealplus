@@ -225,6 +225,8 @@
     <string name="how_does_it_work">Comment ça fonctionne ?</string>
     <string name="matrix_space">Espace Matrix</string>
     <string name="abs_hint">La plupart des plateformes de streaming vidéo fournissent l\'audio et la vidéo séparément. Vous pouvez sélectionner et fusionner un format uniquement audio avec un format uniquement vidéo pour obtenir une seule vidéo.</string>
+    <string name="video_audio_merge_hint">Vidéo et audio sélectionnés — ils seront automatiquement fusionnés lors du téléchargement.</string>
+    <string name="download_and_merge">Télécharger et fusionner</string>
     <string name="sdcard_directory">Dossier de la carte SD</string>
     <string name="auto_subtitle">Sous-titres automatiques</string>
     <string name="auto_subtitle_desc">Télécharger les sous-titres générés automatiquement</string>

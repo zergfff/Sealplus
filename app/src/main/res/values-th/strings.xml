@@ -309,6 +309,8 @@
     <string name="allow_once">อนุญาตครั้งเดียว</string>
     <string name="use_format_sorting">ใช้การจัดเรียงรูปแบบ</string>
     <string name="abs_hint">แพลตฟอร์มสตรีมมิ่งวิดีโอส่วนใหญ่จะส่งเสียงและวิดีโอแยกจากกัน คุณสามารถเลือกและรวมรูปแบบเฉพาะเสียงเข้ากับรูปแบบเฉพาะวิดีโอให้เป็นวิดีโอเดียวได้</string>
+    <string name="video_audio_merge_hint">เลือกวิดีโอและเสียงแล้ว — จะรวมโดยอัตโนมัติเมื่อดาวน์โหลด</string>
+    <string name="download_and_merge">ดาวน์โหลดและรวม</string>
     <string name="allow_always">อนุญาตทุกครั้ง</string>
     <string name="download_with_cellular_request">ให้สามารถดาวน์โหลดโดยใช้ข้อมูลมือถือ?</string>
     <string name="download_archive_error">วีดีโอถูกดาวน์โหลดแล้ว หากนี้ไม่ใช่สิ่งที่คาดไว้ โปรดตรวจสอบในรายการจัดเก็บดาวน์โหลด</string>

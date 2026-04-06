@@ -50,4 +50,6 @@
     <string name="edit">Upraviť</string>
     <string name="start_execute">­</string>
     <string name="advanced_settings">Pokročilé</string>
+    <string name="video_audio_merge_hint">Video a zvuk sú vybrané — pri sťahovaní sa automaticky zlúčia.</string>
+    <string name="download_and_merge">Stiahnuť a zlúčiť</string>
 </resources>

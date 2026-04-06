@@ -93,4 +93,6 @@
     <string name="edit_template_desc">O directorio de saída e a URL serán engadidas pola app automaticamente.</string>
     <string name="credits">Créditos</string>
     <string name="best_quality">Mellor calidade</string>
+    <string name="video_audio_merge_hint">Vídeo e audio seleccionados — fusionaranse automaticamente ao descargar.</string>
+    <string name="download_and_merge">Descargar e fusionar</string>
 </resources>

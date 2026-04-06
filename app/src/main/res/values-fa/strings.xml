@@ -261,6 +261,8 @@
     <string name="auto_subtitle">زیرنویس های خودکار</string>
     <string name="title_activity_share">دانلود سریع</string>
     <string name="abs_hint">اکثر پلتفرم‌های پخش ویدیو صدا و تصویر را به طور جداگانه ارائه می‌کنند، می‌توانید یک فرمت فقط صوتی را با یک فرمت فقط ویدیویی در یک ویدیو انتخاب و ادغام کنید.</string>
+    <string name="video_audio_merge_hint">ویدیو و صدا انتخاب شده‌اند — هنگام دانلود به‌طور خودکار ادغام خواهند شد.</string>
+    <string name="download_and_merge">دانلود و ادغام</string>
     <string name="video_title_sample_text">متن نمونه عنوان ویدیو</string>
     <string name="video_creator_sample_text">متن نمونه سازنده ویدیو</string>
     <string name="subtitle">زیرنویس</string>

@@ -182,6 +182,8 @@
     <string name="private_mode">Tryb prywatny</string>
     <string name="matrix_space">Kanał Matrix</string>
     <string name="abs_hint">Większość platform do strumieniowego przesyłania wideo dostarcza osobno audio i wideo, możesz wybrać i połączyć format audio z formatem wideo w jeden film.</string>
+    <string name="video_audio_merge_hint">Wybrano wideo i dźwięk — zostaną automatycznie połączone podczas pobierania.</string>
+    <string name="download_and_merge">Pobierz i połącz</string>
     <string name="msg_from_developer">Wiadomość od twórcy</string>
     <string name="sponsor_msg2">Dziękuję bardzo!</string>
     <string name="status_error">Błąd</string>

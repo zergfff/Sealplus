@@ -225,6 +225,8 @@
     <string name="cookies">Cookies</string>
     <string name="matrix_space">Matrix-Raum</string>
     <string name="abs_hint">Die meisten Videostreaming-Plattformen liefern Audio und Video getrennt. Du kannst ein reines Audioformat auswählen und mit einem reinen Videoformat zu einem einzigen Video zusammenfügen.</string>
+    <string name="video_audio_merge_hint">Video und Audio ausgewählt — wird beim Herunterladen automatisch zusammengeführt.</string>
+    <string name="download_and_merge">Herunterladen und zusammenführen</string>
     <string name="edit_shortcuts_desc">Individuelle Verknüpfungen bearbeiten, die zur Erstellung von Befehlsvorlagen verwendet werden können.</string>
     <string name="running_tasks">Laufende Aufgaben</string>
     <string name="auto_subtitle">Automatische Untertitel</string>

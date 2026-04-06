@@ -239,6 +239,8 @@
     <string name="crop_artwork_desc">Izrežite ugrađenu sliku u kvadratni format</string>
     <string name="rate_limit">Ograničenje brzine</string>
     <string name="abs_hint">Većina platforma strujanja videozapisa dostavljaju odvojen zvučni zapis i videozapis. Možete odabrati i spojiti format koji sadrži samo zvučni zapis s formatom koji sadrži samo videozapis u jedan videozapis.</string>
+    <string name="video_audio_merge_hint">Video i audio su odabrani — automatski će biti spojeni pri preuzimanju.</string>
+    <string name="download_and_merge">Preuzmi i spoji</string>
     <string name="matrix_space">Matrix prostor</string>
     <string name="select_all">Odaberi sve</string>
     <string name="subtitle_language">Jezici titlova</string>

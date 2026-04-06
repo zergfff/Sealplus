@@ -250,6 +250,8 @@
     <string name="sdcard_directory">Folder ng SD card</string>
     <string name="auto_subtitle">awtomatikong pag-caption</string>
     <string name="abs_hint">Karamihan sa mga video streaming platform ay naghahatid ng audio at video nang hiwalay, maaari mong piliin at pagsamahin ang isang audio lamang na format na may isang video lamang na format sa isang video.</string>
+    <string name="video_audio_merge_hint">Napili ang video at audio — awtomatikong pagsasamahin kapag na-download.</string>
+    <string name="download_and_merge">I-download at Pagsamahin</string>
     <string name="video_creator_sample_text">sample na teksto ng tagalikha ng video</string>
     <string name="subtitle">Subtitle</string>
     <string name="shortcuts">Mga shortcut</string>

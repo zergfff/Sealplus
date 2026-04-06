@@ -30,4 +30,6 @@
     <string name="language">ଭାଷା ଦେଖାନ୍ତୁ</string>
     <string name="permission_denied">ଅନୁମତି ଅସ୍ବୀକୃତ</string>
     <string name="download_success_msg">ଡାଉନଲୋଡ୍ ସମ୍ପୂର୍ଣ୍ଣ ହେଲା</string>
+    <string name="video_audio_merge_hint">ଭିଡ଼ିଓ ଏବଂ ଅଡ଼ିଓ ଚୟନ ହୋଇଛି — ଡାଉନଲୋଡ ସମୟରେ ସ୍ୱୟଂଚାଳିତ ଭାବରେ ମିଶ୍ରଣ ହେବ।</string>
+    <string name="download_and_merge">ଡାଉନଲୋଡ ଏବଂ ମିଶ୍ରଣ କରନ୍ତୁ</string>
 </resources>

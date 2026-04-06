@@ -225,6 +225,8 @@
     <string name="cookies">Cookies</string>
     <string name="matrix_space">Canal de Matrix</string>
     <string name="abs_hint">La mayoría de los servicios de streaming en línea proveen el audio y el vídeo por separado. De esta forma puedes seleccionar mezclar un formato de solo vídeo con otro de solo audio para crear un único vídeo con audio, dando así una mayor personalización.</string>
+    <string name="video_audio_merge_hint">Vídeo y audio seleccionados — se fusionarán automáticamente al descargar.</string>
+    <string name="download_and_merge">Descargar y fusionar</string>
     <string name="sdcard_directory">Ubicación para tarjetas SD</string>
     <string name="auto_subtitle">Subtítulos generados automáticamente</string>
     <string name="auto_subtitle_desc">Descarga subtítulos autogenerados</string>

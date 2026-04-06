@@ -225,6 +225,8 @@
     <string name="telegram_channel">Canale Telegram</string>
     <string name="cookies_usage_msg">La scaricamento da alcuni siti richiede le informazioni di autenticazione dell\'account. Clicca su „Genera nuovi cookie“, inserisci l\'URL del sito web e poi accedi con il tuo account nella pagina del browser: l\'applicazione lo genererà per te.</string>
     <string name="abs_hint">La maggior parte delle piattaforme di streaming video fornisce audio e video separatamente; è possibile selezionare e unire un formato solo audio con un formato solo video in un unico video.</string>
+    <string name="video_audio_merge_hint">Video e audio selezionati — verranno automaticamente uniti durante il download.</string>
+    <string name="download_and_merge">Scarica e unisci</string>
     <string name="add">Aggiungi</string>
     <string name="show_logs">Mostra registro</string>
     <string name="logs">Registro</string>

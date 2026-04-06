@@ -89,4 +89,6 @@
     <string name="start_download">डाऊनलोड</string>
     <string name="not_specified">निर्दिष्ट नाही</string>
     <string name="video_format_preference">आवडीचा व्हिडिओ स्वरूप</string>
+    <string name="video_audio_merge_hint">व्हिडिओ आणि ऑडिओ निवडले — डाउनलोड केल्यावर आपोआप एकत्र केले जातील.</string>
+    <string name="download_and_merge">डाउनलोड आणि एकत्र करा</string>
 </resources>

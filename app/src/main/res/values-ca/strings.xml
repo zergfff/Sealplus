@@ -141,6 +141,8 @@
     <string name="telegram_channel">Canal Telegram</string>
     <string name="sdcard_directory">Carpeta de targetes SD</string>
     <string name="abs_hint">La majoria de plataformes de vídeo en streaming envien l\'àudio i el vídeo per separat, podeu seleccionar i fusionar els formats de només àudio i només vídeo a un sol fitxer de vídeo.</string>
+    <string name="video_audio_merge_hint">Vídeo i àudio seleccionats — es fusionaran automàticament en baixar.</string>
+    <string name="download_and_merge">Baixar i fusionar</string>
     <string name="video_creator_sample_text">Text de mostra del creador de vídeo</string>
     <string name="copy_log">Copia el registre</string>
     <string name="share_success_msg">S\'està llegint l\'enllaç del vídeo des del contingut compartit…</string>

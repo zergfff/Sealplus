@@ -225,6 +225,8 @@
     <string name="cookies">Колачићи</string>
     <string name="matrix_space">Matrix простор</string>
     <string name="abs_hint">Већина платформи за стримовање видео снимака одвојено испоручује аудио и видео снимке, можете изабрати и спојити формат само за аудио снимак с форматом само за видео снимак, у један видео снимак.</string>
+    <string name="video_audio_merge_hint">Видео и аудио изабрани — аутоматски ће бити спојени приликом преузимања.</string>
+    <string name="download_and_merge">Преузми и споји</string>
     <string name="sdcard_directory">Фолдер SD (меморијске) картице</string>
     <string name="auto_subtitle">Аутоматски титлови</string>
     <string name="auto_subtitle_desc">Преузмите аутоматски генерисане титлове</string>

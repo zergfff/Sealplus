@@ -220,6 +220,8 @@
     <string name="dynamic_color">Cor dinâmica</string>
     <string name="embed_subtitles_mkv_msg">Para incorporar legendas, os vídeos serão remuxados para um contentor mkv. Pode utilizar o VLC Media Player ou outras aplicações compatíveis para ver vídeos com legendas incorporadas.</string>
     <string name="abs_hint">A maioria das plataformas de transmissão de vídeo fornece áudio e vídeo separadamente, mas pode selecionar e fundir um formato só de áudio com um formato só de vídeo num único vídeo.</string>
+    <string name="video_audio_merge_hint">Vídeo e áudio selecionados — serão mesclados automaticamente ao descarregar.</string>
+    <string name="download_and_merge">Descarregar e mesclar</string>
     <string name="no_custom_command_tasks">Nenhuma tarefa de comando personalizada</string>
     <string name="share_fail_msg">Não é possível fazer corresponder o URL de um conteúdo partilhado</string>
     <string name="enable_auto_update">Ativar a atualização automática</string>

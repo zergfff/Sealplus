@@ -39,4 +39,6 @@
     <string name="remove">נעם אראפ</string>
     <string name="back">צירוק</string>
     <string name="off">אויסגעלאשן</string>
+    <string name="video_audio_merge_hint">ווידעא און אַודיאָ אויסגעקליבן — וועט אויטאָמאַטיש צונויפמישן ביים אראפקאפיע.</string>
+    <string name="download_and_merge">אראפקאפיע און צונויפמישן</string>
 </resources>

@@ -127,4 +127,6 @@
     <string name="battery_configuration">Batterikonfiguration</string>
     <string name="battery_configuration_desc">Avaktivera appens batterioptimering för att aktivera bakgrundsnedladdning</string>
     <string name="ytdlp_update_action">Uppdatera yt-dlp</string>
+    <string name="video_audio_merge_hint">Video och ljud är valda — slås automatiskt ihop vid nedladdning.</string>
+    <string name="download_and_merge">Ladda ned och slå ihop</string>
 </resources>

@@ -69,4 +69,6 @@
     <string name="paste">Esteka itsatsi</string>
     <string name="yt_dlp_docs">yt-dlp-rako erabilera-erreferentziak</string>
     <string name="edit_template_desc">Irteera-direktorioa eta URLa automatikoki erantsiko ditu aplikazioak.</string>
+    <string name="video_audio_merge_hint">Bideoa eta audioa hautatuta daude — deskargatzean automatikoki bateratuko dira.</string>
+    <string name="download_and_merge">Deskargatu eta bateratu</string>
 </resources>

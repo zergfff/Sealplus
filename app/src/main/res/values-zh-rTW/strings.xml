@@ -225,6 +225,8 @@
     <string name="matrix_space">Matrix 空間</string>
     <string name="cookies">Cookies</string>
     <string name="abs_hint">大多數影音串流平台皆分別提供純音訊和純影片格式，可選取純音訊和純影片格式，並將其合併為單個影片。</string>
+    <string name="video_audio_merge_hint">已選取影片和音訊 — 下載時將自動合併。</string>
+    <string name="download_and_merge">下載並合併</string>
     <string name="clear">清除</string>
     <string name="sdcard_directory">SD 卡資料夾</string>
     <string name="auto_subtitle">自動化字幕</string>

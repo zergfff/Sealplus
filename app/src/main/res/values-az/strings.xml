@@ -225,6 +225,8 @@
     <string name="cookies">Məlumat bazası</string>
     <string name="matrix_space">Matrix məkanı</string>
     <string name="abs_hint">Əksər video yayım platformaları səs və videonu ayrı çatdırır, siz bir video üçün yalnız video formatı ilə yalnız səs formatın seçə və birləşdirə bilərsiniz.</string>
+    <string name="video_audio_merge_hint">Video və audio seçildi — endirilərkən avtomatik olaraq birləşdiriləcək.</string>
+    <string name="download_and_merge">Endir və birləşdir</string>
     <string name="auto_subtitle">Avtomatik titrlər</string>
     <string name="video_title_sample_text">Video başlıq mətn nümunəsi</string>
     <string name="subtitle">Titr</string>

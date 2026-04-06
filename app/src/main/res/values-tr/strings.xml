@@ -253,6 +253,8 @@
     <string name="minute">dakika</string>
     <string name="clear_all_cookies">Tüm çerezleri temizle</string>
     <string name="abs_hint">Çoğu video akış platformu, ses ve videoyu ayrı sunar, yalnızca ses biçimini yalnızca video biçimiyle tek bir videoda seçebilir ve birleştirebilirsiniz.</string>
+    <string name="video_audio_merge_hint">Video ve ses seçildi — indirilirken otomatik olarak birleştirilecek.</string>
+    <string name="download_and_merge">İndir ve birleştir</string>
     <string name="apply">Uygula</string>
     <string name="discard">At</string>
     <string name="clip_video">Video kliple</string>

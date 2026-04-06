@@ -193,7 +193,7 @@
     <string name="cookies_desc">Gunakan kuki berformat Netscape untuk muat turun</string>
     <string name="clear_temp_files">Kosongkan fail sementara</string>
     <string name="clear_temp_files_desc">Kosongkan semua fail sementara daripada direktori dalaman</string>
-    <string name="clear_temp_files_info">Fail-fail sementara boleh digunakan untuk meneruskan muat turun yang telah dibatalkan. Adakah anda pasti untuk membuang semua\?</string>
+    <string name="clear_temp_files_info">Fail-fail sementara boleh digunakan untuk meneruskan muat turun yang telah dibatalkan. Adakah anda pasti untuk membuang semua fail ini?\n\nAnda boleh mengakses fail ini di %1$s</string>
     <string name="dynamic_color">Warna dinamik</string>
     <string name="dynamic_color_desc">Guna warna-warna dari kertas dinding sebagai tema aplikasi</string>
     <string name="network">Rangkaian</string>
@@ -216,6 +216,8 @@
     <string name="use_cookies">Guna Kuki</string>
     <string name="auto_subtitle_desc">Muat turun kapsyen yang dijana secara automatik</string>
     <string name="abs_hint">Kebanyakan platform penstriman video menyampaikan audio dan video secara berasingan, anda boleh pilih dan gabung format audio sahaja dengan format video sahaja kepada satu video.</string>
+    <string name="video_audio_merge_hint">Video dan audio dipilih — akan digabungkan secara automatik semasa memuat turun.</string>
+    <string name="download_and_merge">Muat turun &amp; gabung</string>
     <string name="edit_shortcuts_desc">Edit jalan pintas tersuai yang boleh digunakan untuk mengarang templat arahan.</string>
     <string name="cookies">Kuki</string>
     <string name="generate_new_cookies">Menjana kuki baharu</string>

@@ -84,4 +84,6 @@
         <item quantity="few">%d vaizdo įrašai</item>
         <item quantity="other">%d vaizdo įrašų</item>
     </plurals>
+    <string name="video_audio_merge_hint">Pasirinktas vaizdo ir garso įrašas — atsisiuntimo metu bus automatiškai sujungti.</string>
+    <string name="download_and_merge">Atsisiųsti ir sujungti</string>
 </resources>

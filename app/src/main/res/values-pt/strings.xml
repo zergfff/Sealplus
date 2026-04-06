@@ -244,6 +244,8 @@
     <string name="auto_subtitle">Legendas automáticas</string>
     <string name="auto_subtitle_desc">Descarregar legendas geradas automaticamente</string>
     <string name="abs_hint">A maioria das plataformas de transmissão de vídeo fornece áudio e vídeo separadamente, mas pode selecionar e fundir um formato só de áudio com um formato só de vídeo num único vídeo.</string>
+    <string name="video_audio_merge_hint">Vídeo e áudio selecionados — serão automaticamente mesclados ao baixar.</string>
+    <string name="download_and_merge">Baixar e mesclar</string>
     <string name="video_title_sample_text">Título do vídeo texto de amostra</string>
     <string name="download_subtitles">Descarregar legendas</string>
     <string name="subtitle_language">Línguas das legendas</string>

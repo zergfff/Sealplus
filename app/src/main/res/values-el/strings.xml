@@ -188,6 +188,8 @@
     <string name="auto_subtitle_desc">Λήψη αυτόματης δημιουργίας λεζάντες</string>
     <string name="title_activity_share">Γρήγορη λήψη</string>
     <string name="abs_hint">Οι περισσότερες πλατφόρμες ροής βίντεο παραδίδουν ήχο και βίντεο ξεχωριστά, μπορείτε να επιλέξετε και να συγχωνεύσετε μια μορφή μόνο ήχου με μια μορφή μόνο βίντεο σε ένα ενιαίο βίντεο.</string>
+    <string name="video_audio_merge_hint">Βίντεο και ήχος επιλεγμένα — θα συγχωνευτούν αυτόματα κατά τη λήψη.</string>
+    <string name="download_and_merge">Λήψη και συγχώνευση</string>
     <string name="video_creator_sample_text">Δείγμα κειμένου δημιουργού βίντεο</string>
     <string name="subtitle">Υπότιτλος</string>
     <string name="download_subtitles">–Λήψη υποτίτλων</string>

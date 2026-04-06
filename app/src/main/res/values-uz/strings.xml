@@ -137,4 +137,6 @@
     <string name="show_logs">Jurnalni ko\'rsatish</string>
     <string name="share">Ulashish</string>
     <string name="video_url">Video havolasi</string>
+    <string name="video_audio_merge_hint">Video va audio tanlangan — yuklab olishda avtomatik birlashtiriladi.</string>
+    <string name="download_and_merge">Yuklab olish va birlashtirish</string>
 </resources>

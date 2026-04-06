@@ -279,6 +279,8 @@
     <string name="remove_cookie_profile_desc">Eltávolítja ezt a bejegyzést a következőhöz: \"%1$s\"? Vegye figyelembe, hogy az ezen az oldalon tárolt cookie-k nem törlődnek.</string>
     <string name="matrix_space">Mátrix helye</string>
     <string name="abs_hint">A legtöbb oldal külön tárolja a hangot, és a videót. Ki tud választani csak hang, és csak videó formátumú tartalmakat, hogy aztán egybeolvassza őket.</string>
+    <string name="video_audio_merge_hint">Videó és hang kiválasztva — letöltéskor automatikusan egyesítve lesz.</string>
+    <string name="download_and_merge">Letöltés és egyesítés</string>
     <string name="clear">Clear</string>
     <string name="cookies_usage_msg">Bizonyos oldalakról való letöltéshez hitelesítés szükséges. Kattintson a(z) \"Új sütik generálása\" gombra, írja be az oldal címét, majd jelentkezzen be az oldalra. Ezután az alkalmazás legenerálja magától a szükséges adatokat.</string>
     <string name="video_creator_sample_text">Videó készitő példa szöveg</string>

@@ -241,6 +241,8 @@
     <string name="running_tasks">चल रहे कार्य</string>
     <string name="subtitle_sponsorblock">प्रायोजक ब्लॉक सेगमेंट को हटाते समय सबटाइटल गलत समय पर हो सकते हैं।</string>
     <string name="abs_hint">अधिकांश वीडियो स्ट्रीमिंग प्लेटफ़ॉर्म ऑडियो और वीडियो को अलग-अलग वितरित करते हैं, आप एक वीडियो-केवल प्रारूप के साथ एक ऑडियो-ओनली प्रारूप का चयन और विलय कर सकते हैं।</string>
+    <string name="video_audio_merge_hint">वीडियो और ऑडियो चुना गया — डाउनलोड होने पर स्वचालित रूप से मर्ज हो जाएगा।</string>
+    <string name="download_and_merge">डाउनलोड और मर्ज करें</string>
     <string name="sdcard_directory">एसडी कार्ड फ़ोल्डर</string>
     <string name="auto_subtitle">स्वचालित कैप्शन</string>
     <string name="auto_subtitle_desc">स्वत: जनरेट किए गए कैप्शन डाउनलोड करें</string>

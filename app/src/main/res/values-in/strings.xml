@@ -225,6 +225,8 @@
     <string name="matrix_space">Space Matrix</string>
     <string name="cookies">Kuki</string>
     <string name="abs_hint">Sebagian besar platform streaming video mengirimkan audio dan video secara terpisah, Anda dapat memilih dan menggabungkan format audio saja dengan format video saja menjadi satu video.</string>
+    <string name="video_audio_merge_hint">Video dan audio dipilih — akan otomatis digabungkan saat mengunduh.</string>
+    <string name="download_and_merge">Unduh &amp; Gabungkan</string>
     <string name="auto_subtitle_desc">Unduh keterangan yang dibuat secara otomatis</string>
     <string name="video_title_sample_text">Contoh teks judul video</string>
     <string name="video_creator_sample_text">Contoh teks pembuat video</string>

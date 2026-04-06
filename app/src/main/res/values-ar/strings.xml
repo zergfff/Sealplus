@@ -224,6 +224,8 @@
     <string name="matrix_space">مساحة Matrix</string>
     <string name="cookies">كوكيز</string>
     <string name="abs_hint">تقدم معظم منصات الفيديو، الصوت والفيديو بشكل منفصل ، يمكنك تحديد ودمج صيغة صوت فقط بصيغة فيديو في فيديو واحد.</string>
+    <string name="video_audio_merge_hint">تم تحديد الفيديو والصوت — سيتم دمجهما تلقائيًا عند التنزيل.</string>
+    <string name="download_and_merge">تنزيل ودمج</string>
     <string name="auto_subtitle_desc">سيقوم هذا الخيار بتحميل الترجمة التلقائية ان توفرت من المصدر</string>
     <string name="download_subtitles">تنزيل الترجمات</string>
     <string name="edit_shortcuts">تعديل الاختصارات</string>
