@@ -92,6 +92,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.derivedStateOf
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
@@ -287,13 +288,26 @@ fun NewHomePage(
         }
     }
     
-    // Get recent downloads from database - Room Flow is already reactive, no trigger needed
-    val recentDownloads by remember {
-        DatabaseUtil.getVisibleDownloadHistoryFlow()
-    }.collectAsStateWithLifecycle(initialValue = emptyList())
+    // Always-on collection: LaunchedEffect is tied to the composition lifetime (not Android
+    // lifecycle), so Room emissions are NEVER missed — not when on the back stack, not when
+    // the app is backgrounded, not during navigation transitions. This prevents the stale-card
+    // bug where a deletion on VideoListPage wasn't reflected until the process was killed.
+    var recentDownloads by remember { mutableStateOf(emptyList<DownloadedVideoInfo>()) }
+    LaunchedEffect(Unit) {
+        DatabaseUtil.getVisibleDownloadHistoryFlow().collect { list ->
+            recentDownloads = list
+        }
+    }
 
     // Tracks IDs that have been hidden this session for instant optimistic UI removal
     var localHiddenIds by remember { mutableStateOf(setOf<Int>()) }
+
+    // Purge stale IDs from localHiddenIds once the DB confirms their removal,
+    // so a later re-insertion doesn't get incorrectly suppressed.
+    LaunchedEffect(recentDownloads) {
+        val currentIds = recentDownloads.map { it.id }.toSet()
+        localHiddenIds = localHiddenIds.intersect(currentIds)
+    }
     
     // Get recent 5 downloads (remove duplicates by video URL and path to prevent duplicate cards)
     val recentFiveDownloads = remember(recentDownloads) {
@@ -748,6 +762,7 @@ fun NewHomePage(
                     
                     RecentDownloadCard(
                         downloadInfo = downloadInfo,
+                        refreshKey = lifecycleRefreshTrigger,
                         onClick = {
                             FileUtil.openFile(downloadInfo.videoPath) {
                                 context.makeToast(R.string.file_unavailable)
@@ -966,12 +981,17 @@ fun RecentDownloadCard(
     onCopyLink: () -> Unit,
     onShowDetails: () -> Unit,
     onHide: () -> Unit = {},
+    refreshKey: Int = 0,
     modifier: Modifier = Modifier
 ) {
     val isDarkTheme = LocalDarkTheme.current.isDarkTheme()
     val isGradientDark = LocalGradientDarkMode.current
     var showMenu by remember { mutableStateOf(false) }
-    val fileExists = remember(downloadInfo.videoPath) { java.io.File(downloadInfo.videoPath).exists() }
+    // Use produceState so fileExists is re-checked on every recomposition trigger (refreshKey
+    // changes on ON_RESUME), and also whenever the video path itself changes.
+    val fileExists by produceState(initialValue = java.io.File(downloadInfo.videoPath).exists(), key1 = downloadInfo.videoPath, key2 = refreshKey) {
+        value = java.io.File(downloadInfo.videoPath).exists()
+    }
 
     Card(
         modifier = modifier
