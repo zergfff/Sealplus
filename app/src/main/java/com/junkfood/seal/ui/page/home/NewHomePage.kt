@@ -374,9 +374,6 @@ fun NewHomePage(
         AlertDialog(
             onDismissRequest = { 
                 showNotificationPermissionDialog = false
-                if (!isBatteryOptimizationDisabled) {
-                    showBatteryOptimizationDialog = true
-                }
             },
             icon = { 
                 Icon(
@@ -421,11 +418,8 @@ fun NewHomePage(
             },
             dismissButton = {
                 TextButton(
-                    onClick = { 
+                    onClick = {
                         showNotificationPermissionDialog = false
-                        if (!isBatteryOptimizationDisabled) {
-                            showBatteryOptimizationDialog = true
-                        }
                     }
                 ) {
                     Text(
