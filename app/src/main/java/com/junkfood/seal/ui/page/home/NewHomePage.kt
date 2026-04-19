@@ -213,7 +213,6 @@ fun NewHomePage(
     
     // Permission states
     var showNotificationPermissionDialog by remember { mutableStateOf(false) }
-    var showBatteryOptimizationDialog by remember { mutableStateOf(false) }
     var permissionsChecked by remember { mutableStateOf(false) }
     var showSponsorDialog by remember { mutableStateOf(false) }
     
@@ -229,26 +228,11 @@ fun NewHomePage(
         }
     }
     
-    // Check battery optimization
-    val isBatteryOptimizationDisabled = remember(lifecycleRefreshTrigger) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            val pm = context.getSystemService(PowerManager::class.java)
-            pm.isIgnoringBatteryOptimizations(context.packageName)
-        } else {
-            true // Not needed below Android 6
-        }
-    }
-    
     // Notification permission launcher - tries system permission first
     // Notification settings launcher - opens app notification settings
     val notificationSettingsLauncher = rememberLauncherForActivityResult(
         ActivityResultContracts.StartActivityForResult()
     ) { /* Permission state will be checked on resume */ }
-    
-    // Battery optimization launcher
-    val batteryOptimizationLauncher = rememberLauncherForActivityResult(
-        ActivityResultContracts.StartActivityForResult()
-    ) { /* Result handled by remembering state */ }
 
     
     // Check permissions on first load
@@ -257,8 +241,6 @@ fun NewHomePage(
             permissionsChecked = true
             if (!hasNotificationPermission) {
                 showNotificationPermissionDialog = true
-            } else if (!isBatteryOptimizationDisabled) {
-                showBatteryOptimizationDialog = true
             }
         }
         // Sponsor support dialog — delay slightly so permissions dialogs get priority
@@ -273,17 +255,6 @@ fun NewHomePage(
             val now = System.currentTimeMillis()
             if (lastShown == 0L || now - lastShown >= intervalMs) {
                 showSponsorDialog = true
-            }
-        }
-    }
-    
-    // Monitor permission state changes to show next dialog when user returns from settings
-    LaunchedEffect(hasNotificationPermission, isBatteryOptimizationDisabled) {
-        if (permissionsChecked) {
-            // If notification dialog was shown and is now dismissed
-            if (!showNotificationPermissionDialog && hasNotificationPermission && !isBatteryOptimizationDisabled) {
-                // Show battery optimization dialog after notification permission is granted
-                showBatteryOptimizationDialog = true
             }
         }
     }

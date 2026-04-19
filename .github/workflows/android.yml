@@ -34,18 +34,12 @@ jobs:
         echo "? Decoding Key..."
         echo "$ANDROID_SIGNING_KEY" | tr -d '\n\r ' | base64 --decode > "${{ github.workspace }}/Mahesh.jks"
 
-    # --- UPDATED STEP: Fast Build aur Native Signing Ek Sath ---
-    - name: Build and Sign Release APKs
-      env:
-        ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
-        ANDROID_ALIAS: ${{ secrets.ANDROID_ALIAS }}
-        ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
+    # --- Build unsigned armv8 APK ---
+    - name: Build unsigned armv8 APK
       run: |
         ./gradlew assembleRelease --parallel --build-cache --no-daemon \
-          -Pandroid.injected.signing.store.file="${{ github.workspace }}/Mahesh.jks" \
-          -Pandroid.injected.signing.store.password="$ANDROID_KEYSTORE_PASSWORD" \
-          -Pandroid.injected.signing.key.alias="$ANDROID_ALIAS" \
-          -Pandroid.injected.signing.key.password="$ANDROID_KEY_PASSWORD"
+          -PnoSplits=true \
+          -PABI_FILTERS=arm64-v8a
 
     - name: Get version name
       id: version
